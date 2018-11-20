@@ -1,7 +1,8 @@
 $(document).ready(function () {
 
-  var randomNumber = Math.floor((Math.random() * 120) + 19);
-  console.log(randomNumber)
+  var start = function() {
+randomNumber = Math.floor((Math.random() * 120) + 19);
+}
 
 
 
@@ -27,6 +28,9 @@ $(document).ready(function () {
     
 
   }
+
+  start();
+  $("#rand").text(randomNumber);
    
   $(".crystals").on("click", function(e){
       
@@ -39,16 +43,19 @@ $(document).ready(function () {
       if(score === randomNumber){
         wins++;
         $("#wins").text(wins);
-      }
+
+        start();
+        $("#rand").text(randomNumber);
+      };
 
       if(score > randomNumber) {
         loss++;
         $("#losses").text(loss);
         score = 0;
        
-        location.reload();
-        
-      }
+        start();
+        $("#rand").text(randomNumber);
+      };
     
   });
 
@@ -61,7 +68,7 @@ $(document).ready(function () {
 
 
 
-  $("#rand").append(randomNumber);
+  
 
   
   
